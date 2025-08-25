@@ -12,7 +12,7 @@ const PORT = 8000;
 
 app.use(express.json());
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:"https://chatgpt-1-sd7d.onrender.com",
     credentials:true}))
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())

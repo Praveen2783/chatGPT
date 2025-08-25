@@ -21,8 +21,6 @@ const navigate = useNavigate()
             setForm({ name: '', email: '', password: '' })
             toast.success(data.message)
             navigate("/signin")
-        }else{
-        toast.error(data.message)
         }
         // console.log(data)
       } catch (error) {
@@ -42,8 +40,6 @@ const navigate = useNavigate()
             navigate('/')
             // navigate(0)
 
-        }else{
-          toast.error(data.message)
         }
         // console.log(data)
       } catch (error) {

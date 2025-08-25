@@ -10,11 +10,12 @@ const app = express();
 const PORT = 8000;
 
 
-app.use(express.json());
+
 app.use(cors({
     origin:"https://chatgpt-1-sd7d.onrender.com",
     credentials:true}))
-app.use(express.urlencoded({extended:true}))
+app.use(express.json());
+// app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
     
 

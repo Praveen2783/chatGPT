@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState} from "react";
 import { AppContext } from './AppContext';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-
+import Cookies from 'js-cookie';
 export const AuthContext = createContext()
 
 const AuthContextProvider = (props) => {
@@ -12,20 +12,23 @@ const navigate = useNavigate()
      const [form, setForm] = useState({ name: '', email: '', password: '' })
      const [signinForm, setSigninForm] = useState({  email: '', password: '' })
      const [userData,setUserData] =useState(null) 
-
+  
    const SignUp=  async(e)=>{
         e.preventDefault()
       try {
         const {data } =await axios.post(`${backend_Url}/api/user/signup`,form,{withCredentials:true})
         if(data.success){
+           Cookies.set("token" ,data.token,{ expires: 7, secure: true, sameSite: 'Lax' })
             setForm({ name: '', email: '', password: '' })
             toast.success(data.message)
             navigate("/signin")
+        }else{
+          
+          toast.error(data.message)
         }
-        toast.error(data.message)
         // console.log(data)
       } catch (error) {
-          toast.error(error.message)
+          toast.error(error.data.message)
       }
    }
 
@@ -33,16 +36,15 @@ const navigate = useNavigate()
         e.preventDefault()
       try {
         const {data } =await axios.post(`${backend_Url}/api/user/signin`,signinForm,{withCredentials:true})
-        // console.log(data)
+        console.log(data)
         if(data.success){
+            Cookies.set("token" ,data.token,{ expires: 7, secure: true, sameSite: 'Lax' })
             setSigninForm({  email: '', password: '' })
+            // navigate("/")
+            navigate(0)
             toast.success(data.message)
             // setUserData(data.existUser)
-            navigate('/')
-            navigate(0)
 
-        }else{
-          toast.error(data.message)
         }
         // console.log(data)
       } catch (error) {

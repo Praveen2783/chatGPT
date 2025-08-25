@@ -12,7 +12,7 @@ import { AuthContext } from './context/AuthContext'
 
 
 function App() {
-const {userData,setUserData} =useContext(AuthContext);
+const {userData} =useContext(AuthContext);
 // console.log(userData)
 
   return (
@@ -21,9 +21,9 @@ const {userData,setUserData} =useContext(AuthContext);
 {/* <SidebarLayout/> */}
   <ToastContainer/>
      <Routes>
-        <Route path='/'element={(userData)?<SidebarLayout/>:<Navigate to={"/signin"}/>}/>
-        <Route path='/signup'element={!userData?<SignUp/>:<Navigate to={"/"}/>}/>
-        <Route path='/signin'element={ !userData?<SignIn/>:<Navigate to={"/"}/>}/>
+        <Route path="/" element={userData?<SidebarLayout/>:<Navigate to={"/signin"}/>}/>
+        <Route path="/signup"element={!userData?<SignUp/>:<Navigate to={"/"}/>}/>
+        <Route path="/signin"element={ !userData?<SignIn/>:<Navigate to={"/"}/>}/>
       
        
        </Routes> 

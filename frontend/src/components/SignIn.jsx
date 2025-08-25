@@ -37,7 +37,7 @@ const SignIn = () => {
 
   return (
     <div
-      className="min-h-screen flex bg-[#0f172a] items-center justify-center bg-[url(assets\authBg.png)] bg-no-repeat bg-cover bg-center"
+      className="min-h-screen flex bg-[#0f172a] items-center justify-center bg-no-repeat bg-cover bg-center"
      
     >
       <div className="absolute inset-0  bg-opacity-60 z-0"></div>

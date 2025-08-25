@@ -7,7 +7,7 @@ export const AppContext = createContext()
 
 const AppContextProvider = (props) => {
 
-    const backend_Url  = 'http://localhost:8000'
+    const backend_Url  = 'https://chatgpt-l1og.onrender.com'
    const [allThreads,setAllThreads] =useState([]) 
    const [prompt,setPrompt] =useState("") 
    const [reply,setReply] =useState(null) 

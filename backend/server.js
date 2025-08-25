@@ -1,7 +1,7 @@
 import express from "express";
 import cors from 'cors'
 import axios from "axios";
-import 'dotenv/config'
+import dotenv from 'dotenv'
 import connectDb from "./utils/dbConnected.js";
 import chatRouter from "./routes/chatRouter.js";
 import userRouter from "./routes/userRouter.js";
@@ -10,11 +10,12 @@ const app = express();
 const PORT = 8000;
 
 
-app.use(express.json());
+
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:"https://chatgpt-1-sd7d.onrender.com",
     credentials:true}))
-app.use(express.urlencoded({extended:true}))
+app.use(express.json());
+// app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
     
 

@@ -1,7 +1,7 @@
 import express from "express";
 import cors from 'cors'
 import axios from "axios";
-import 'dotenv/config'
+import dotenv'dotenv'
 import connectDb from "./utils/dbConnected.js";
 import chatRouter from "./routes/chatRouter.js";
 import userRouter from "./routes/userRouter.js";

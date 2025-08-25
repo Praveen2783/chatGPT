@@ -18,7 +18,7 @@ const navigate = useNavigate()
       try {
         const {data } =await axios.post(`${backend_Url}/api/user/signup`,form,{withCredentials:true})
         if(data.success){
-           Cookies.set('token', data.token, { expires: 7, secure: true, sameSite: 'Lax' });
+           Cookies.set('token', data.token, { expires: 7, secure: true, sameSite: 'None' });
             setForm({ name: '', email: '', password: '' })
             toast.success(data.message)
             navigate("/signin")
@@ -35,7 +35,7 @@ const navigate = useNavigate()
         const {data } =await axios.post(`${backend_Url}/api/user/signin`,signinForm,{withCredentials:true})
         console.log(data)
         if(data.success){
-              Cookies.set('token', data.token, { expires: 7, secure: true, sameSite: 'Lax' });
+              Cookies.set('token', data.token, { expires: 7, secure: true, sameSite: 'None' });
             setSigninForm({  email: '', password: '' })
             // navigate("/")
             navigate(0)
